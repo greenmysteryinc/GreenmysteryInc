@@ -1,3 +1,7 @@
+<p align="center">
+<img src="greenmystery-banner.png">
+</p>
+
 ## Hi there 👋
 GreenMystery here of GreenMystery Inc.
 <!--
