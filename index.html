@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GreenMysteryInc | Creator Operating System</title>
+<meta name="description" content="GreenMysteryInc Creator OS — streaming, analytics, partnerships, and content planning in one professional creator platform.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#050b08;color:#e8f5e9}
+
+.hero{position:relative;height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-1;filter:brightness(.35)}
+.hero h1{font-size:3.5rem;color:#7CFFB2}
+.hero p{margin-top:10px}
+
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;background:#04100b;padding:15px;border-bottom:1px solid #0f3d2e;position:sticky;top:0}
+nav a{color:#7CFFB2;text-decoration:none;font-weight:600}
+
+section{max-width:1200px;margin:auto;padding:70px 20px}
+h2{color:#7CFFB2;text-align:center;margin-bottom:25px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{background:#0c1f18;padding:25px;border-radius:14px}
+
+.platforms{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.platform{background:#07140f;padding:20px;border-radius:12px;text-align:center}
+.platform a{color:#7CFFB2;text-decoration:none;font-weight:600}
+
+.stats{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;text-align:center}
+.stat{background:#0c1f18;padding:25px;border-radius:12px;min-width:180px}
+.stat h3{color:#7CFFB2;font-size:2rem}
+
+.btn{display:inline-block;margin-top:15px;padding:10px 18px;background:#7CFFB2;color:#03110b;border-radius:6px;text-decoration:none;font-weight:600}
+
+textarea,input{width:100%;padding:12px;border-radius:6px;border:none;background:#07140f;color:#fff;margin-top:10px}
+
+.task{display:flex;justify-content:space-between;background:#07140f;padding:10px;border-radius:6px;margin-top:8px}
+
+footer{text-align:center;padding:35px;background:#04100b;border-top:1px solid #0f3d2e}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-gaming-setup-5176/1080p.mp4" type="video/mp4">
+</video>
+<div>
+<h1>GreenMysteryInc</h1>
+<p>Creator Operating System • Streaming • Growth • Partnerships</p>
+</div>
+</div>
+
+<nav>
+<a href="#platforms">Platforms</a>
+<a href="#analytics">Analytics</a>
+<a href="#planner">Content Planner</a>
+<a href="#outreach">Brand Outreach</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- PLATFORM HUB -->
+<section id="platforms">
+<h2>Creator Platform Hub</h2>
+<div class="platforms">
+<div class="platform"><h3>Twitch</h3><a href="https://twitch.tv/greenmystery17" target="_blank">twitch.tv/greenmystery17</a></div>
+<div class="platform"><h3>Kick</h3><a href="https://kick.com/greenmystery" target="_blank">kick.com/greenmystery</a></div>
+<div class="platform"><h3>TikTok</h3><a href="https://tiktok.com/@greenmystery17" target="_blank">@greenmystery17</a></div>
+<div class="platform"><h3>YouTube — GreenMysteryInc</h3><a href="https://www.youtube.com/@greenmysteryinc" target="_blank">Visit Channel</a></div>
+<div class="platform"><h3>YouTube — GreenMystery 17</h3><a href="https://www.youtube.com/@greenmystery17" target="_blank">Visit Channel</a></div>
+</div>
+</section>
+
+<!-- ANALYTICS DASHBOARD -->
+<section id="analytics">
+<h2>Creator Analytics Dashboard</h2>
+<div class="stats">
+<div class="stat"><h3 id="followers">2500+</h3><p>Community</p></div>
+<div class="stat"><h3 id="views">120K+</h3><p>Total Views</p></div>
+<div class="stat"><h3 id="subs">800+</h3><p>YouTube Subscribers</p></div>
+</div>
+</section>
+
+<!-- CONTENT PLANNER -->
+<section id="planner">
+<h2>Content Planner</h2>
+<div class="card">
+<input id="taskInput" placeholder="Add stream or content idea...">
+<button class="btn" onclick="addTask()">Add Task</button>
+<div id="taskList"></div>
+</div>
+</section>
+
+<!-- BRAND OUTREACH TOOL -->
+<section id="outreach">
+<h2>Brand Outreach Generator</h2>
+<div class="card">
+<input id="brandName" placeholder="Brand Name">
+<textarea id="pitchOutput" rows="6" placeholder="Your pitch will appear here..."></textarea>
+<button class="btn" onclick="generatePitch()">Generate Pitch</button>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Business Contact</h2>
+<p style="text-align:center">greenmysteryinc@gmail.com</p>
+</section>
+
+<footer>
+<p>© 2026 GreenmysteryInc | Creator Operating System</p>
+</footer>
+
+<script>
+/* CONTENT PLANNER */
+function addTask(){
+const input=document.getElementById('taskInput');
+if(!input.value) return;
+const div=document.createElement('div');
+div.className='task';
+div.innerHTML=`<span>${input.value}</span><button onclick="this.parentElement.remove()">✔</button>`;
+document.getElementById('taskList').appendChild(div);
+input.value='';
+}
+
+/* BRAND PITCH GENERATOR */
+function generatePitch(){
+const brand=document.getElementById('brandName').value || 'your brand';
+const text=`Hello ${brand} Team,
+
+I’m GreenMystery, a gaming and digital media creator focused on interactive live streaming and community-driven entertainment. I’d love to explore a collaboration that authentically introduces ${brand} to my audience through live content and social media storytelling.
+
+Looking forward to connecting!
+GreenMystery`;
+document.getElementById('pitchOutput').value=text;
+}
+</script>
+
+</body>
+</html>
